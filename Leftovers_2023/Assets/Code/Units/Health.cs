@@ -14,6 +14,8 @@ namespace Leftovers_2DPlatformer
 
         private int currentHealth = 0;
 
+        public HealthBar healthBar;
+
         public int CurrentHealth
         {
             get { return currentHealth; }
@@ -28,6 +30,8 @@ namespace Leftovers_2DPlatformer
         public void DecreaseHealth(int amount)
         {
             CurrentHealth -= amount;
+
+            healthBar.SetHealth(CurrentHealth);
         }
 
         public void IncreaseHealth(int amount)
@@ -45,12 +49,14 @@ namespace Leftovers_2DPlatformer
         void Start()
         {
             Reset();
+            healthBar.SetMaxHealth(MaxHealth);
         }
 
         // Update is called once per frame
         void Update()
         {
             Debug.Log(CurrentHealth);
+            
         }
     }
 }
