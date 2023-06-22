@@ -10,18 +10,20 @@ namespace Leftovers_2DPlatformer
 		private new Rigidbody2D rigidbody;
 		private Vector2 movement;
 
+		private float gravityMultiplier = 2.5f;
+
 		public float Speed
 		{
 			get;
 			private set;
 		}
 
-		public void Setup(float speed)
+		public void MovementSpeed(float speed)
 		{
 			Speed = speed;
 		}
 
-        private void Awake()
+		private void Awake()
         {
 			rigidbody = GetComponent<Rigidbody2D>();
 			if (rigidbody == null)
@@ -37,6 +39,13 @@ namespace Leftovers_2DPlatformer
         private void FixedUpdate()
 		{
 			rigidbody.velocity = new Vector2(movement.x * Speed, rigidbody.velocity.y);
+
+			if (rigidbody.velocity.y < 0)
+			{
+				rigidbody.velocity += Vector2.up * Physics.gravity.y * gravityMultiplier * Time.deltaTime;
+
+			}
+
 		}
 
 		public void Move(Vector2 direction)
@@ -46,7 +55,7 @@ namespace Leftovers_2DPlatformer
 
 		public void Jump(float height)
 		{
-			
+			rigidbody.AddForce(Vector2.up * height, ForceMode2D.Impulse);
 		}
 	}
 }

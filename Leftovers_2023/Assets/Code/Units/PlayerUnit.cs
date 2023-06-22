@@ -13,6 +13,10 @@ namespace Leftovers_2DPlatformer
 		
 		private Vector2 move;
 
+		[SerializeField]
+		private float jumpHeight;
+
+
 		protected override void Awake()
 		{
 			base.Awake();
@@ -23,6 +27,8 @@ namespace Leftovers_2DPlatformer
 		protected override void Start()
 		{
 			base.Start();
+
+			
 		}
 
 		protected override void Update()
@@ -37,7 +43,8 @@ namespace Leftovers_2DPlatformer
 
 		void Jump(InputAction.CallbackContext context)
 		{
-			Debug.Log("Jump!");
+			
+			Mover.Jump(jumpHeight);
 		}
 
 		private void OnDisable()
@@ -48,7 +55,7 @@ namespace Leftovers_2DPlatformer
 
 			inputs.Player.Jump.Disable();
 			inputs.Player.Jump.performed -= Jump;
-			inputs.Player.Jump.canceled -= Jump;
+			
 		}
 
 		private void OnEnable()
@@ -59,7 +66,7 @@ namespace Leftovers_2DPlatformer
 
 			inputs.Player.Jump.Enable();
 			inputs.Player.Jump.performed += Jump;
-			inputs.Player.Jump.canceled += Jump;
+			
 		}
 	}
 }

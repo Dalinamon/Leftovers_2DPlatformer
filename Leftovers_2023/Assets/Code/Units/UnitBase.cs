@@ -7,7 +7,7 @@ namespace Leftovers_2DPlatformer
 	public abstract class UnitBase : MonoBehaviour
 	{
 		[SerializeField]
-		private float speed = 5;
+		private float speed;
 
 		public IMove Mover
 		{
@@ -26,7 +26,7 @@ namespace Leftovers_2DPlatformer
 
 		protected virtual void Start()
 		{
-			Mover.Setup(speed);
+			Mover.MovementSpeed(speed);
 		}
 
 		protected abstract void Update();

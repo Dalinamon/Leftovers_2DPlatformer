@@ -8,8 +8,8 @@ namespace Leftovers_2DPlatformer
 	{
 		float Speed { get; }
 
-		void Setup(float speed);
-		
+		void MovementSpeed(float speed);
+
 		void Move(Vector2 direction);
 		
 		void Jump(float height);
