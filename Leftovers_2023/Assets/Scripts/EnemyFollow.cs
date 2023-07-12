@@ -15,7 +15,7 @@ public class EnemyFollow : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; // Set gravity scale to 0 to disable falling
+        rb.gravityScale = 0f; 
         initialRotation = transform.rotation;
     }
 
@@ -47,7 +47,7 @@ public class EnemyFollow : MonoBehaviour
         }
         else
         {
-            // Disable rotation when the enemy is in the air
+           
             transform.rotation = initialRotation;
         }
     }
