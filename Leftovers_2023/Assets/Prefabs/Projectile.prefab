@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!1 &5757589799995028705
-=======
---- !u!1 &8892598406900442312
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+--- !u!1 &3048352518546187900
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,67 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 5757589799995028711}
-  - component: {fileID: 5757589799995028704}
-  - component: {fileID: 694760306644465224}
-  - component: {fileID: 4938443278286682292}
-  m_Layer: 0
-  m_Name: Projectile
-  m_TagString: Untagged
-=======
-  - component: {fileID: 124437015669147432}
-  - component: {fileID: 5643841265656887708}
-  - component: {fileID: 4752987770032892384}
-  - component: {fileID: 2270057942271959134}
+  - component: {fileID: 6161092578689817591}
+  - component: {fileID: 8102397387739449354}
+  - component: {fileID: 4385085765889725834}
+  - component: {fileID: 2489254007713793047}
   m_Layer: 8
   m_Name: Projectile
   m_TagString: Enemy
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
---- !u!4 &5757589799995028711
-=======
---- !u!4 &124437015669147432
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+--- !u!4 &6161092578689817591
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 5757589799995028705}
+  m_GameObject: {fileID: 3048352518546187900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07508406, y: 2.367982, z: 0}
-=======
-  m_GameObject: {fileID: 8892598406900442312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051759783, y: 0, z: 0}
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!212 &5757589799995028704
-=======
---- !u!212 &5643841265656887708
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+--- !u!212 &8102397387739449354
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 5757589799995028705}
-=======
-  m_GameObject: {fileID: 8892598406900442312}
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+  m_GameObject: {fileID: 3048352518546187900}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -118,22 +86,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!50 &694760306644465224
-=======
---- !u!50 &4752987770032892384
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+--- !u!50 &4385085765889725834
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 5757589799995028705}
-=======
-  m_GameObject: {fileID: 8892598406900442312}
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+  m_GameObject: {fileID: 3048352518546187900}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -147,21 +107,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-<<<<<<< HEAD
---- !u!58 &4938443278286682292
-=======
---- !u!58 &2270057942271959134
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+--- !u!58 &2489254007713793047
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 5757589799995028705}
-=======
-  m_GameObject: {fileID: 8892598406900442312}
->>>>>>> 0d8e702f363f093e51a359670d69b3680f030c88
+  m_GameObject: {fileID: 3048352518546187900}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
