@@ -1,4 +1,3 @@
-using Leftovers_2DPlatformer;
 using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
@@ -10,24 +9,56 @@ public class EnemyFollow : MonoBehaviour
     private Rigidbody2D rb;
     private float distance;
 
+    private bool isPlayerGrounded;
+    private Quaternion initialRotation;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        GetComponent<EnemyFollow>();
+        rb.gravityScale = 0f; // Set gravity scale to 0 to disable falling
+        initialRotation = transform.rotation;
     }
 
     private void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        distance = Mathf.Abs(transform.position.y - player.transform.position.y);
 
         if (distance < distanceBetween)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            float moveDirection = Mathf.Sign(player.transform.position.x - transform.position.x);
+            rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+            RotateTowardsPlayer();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            ResetRotation();
         }
     }
-}
 
+    private void RotateTowardsPlayer()
+    {
+        if (isPlayerGrounded)
+        {
+            Vector2 direction = player.transform.position - transform.position;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        }
+        else
+        {
+            // Disable rotation when the enemy is in the air
+            transform.rotation = initialRotation;
+        }
+    }
+
+    private void ResetRotation()
+    {
+        transform.rotation = initialRotation;
+    }
+
+    public void SetPlayerGrounded(bool grounded)
+    {
+        isPlayerGrounded = grounded;
+    }
+}
