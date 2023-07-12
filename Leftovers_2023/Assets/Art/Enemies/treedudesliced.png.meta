@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5508b2df35b2d848b013de2a76db4ce
+guid: 3bd640b28bb8e7f42b27e350c196d747
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 108
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,64 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilemap_0
+      name: treetrunk
       rect:
         serializedVersion: 2
-        x: 0
-        y: 432
-        width: 108
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 55
+        width: 285
+        height: 263
+      alignment: 9
+      pivot: {x: 0.52304727, y: 0.030825365}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e6f1bb6a762c8745a5fb75a36de6fc3
-      internalID: 64792576
+      spriteID: f2406b932427f214aa07758b46727549
+      internalID: -254477633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_1
+      name: treeface
       rect:
         serializedVersion: 2
-        x: 0
-        y: 324
-        width: 108
-        height: 108
+        x: 404
+        y: 249
+        width: 34
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894cab8a29f73c740b56794ce1f2a406
-      internalID: 739981684
+      spriteID: eed08891c34c92a4f9dbfe685c30ee93
+      internalID: -303524644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_2
+      name: treearmback
       rect:
         serializedVersion: 2
-        x: 0
-        y: 216
-        width: 108
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 334
+        y: 184
+        width: 75
+        height: 33
+      alignment: 9
+      pivot: {x: 0.9378963, y: 0.6279574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879669e474b03ac49b3c7ca3b0f37f1b
-      internalID: -222748183
+      spriteID: 70fb8b2ef8373454cb24af1d802d57a8
+      internalID: 1826136208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treearmfront
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 185
+        width: 75
+        height: 33
+      alignment: 9
+      pivot: {x: 0.05584798, y: 0.656392}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0105898a1d83f414c922ad4ea5ec3f84
+      internalID: 1817329415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treelegback
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 41
+        width: 74
+        height: 89
+      alignment: 9
+      pivot: {x: 0.8360307, y: 0.94832265}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc51de7052cbf4d49ad61de7241eec7b
+      internalID: -432681715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: treelegfront
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 41
+        width: 74
+        height: 90
+      alignment: 9
+      pivot: {x: 0.16397013, y: 0.9431096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a7dbaaa6b11124e8dda466322a45f0
+      internalID: -931815212
       vertices: []
       indices: 
       edges: []
@@ -178,9 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tilemap_2: -222748183
-      tilemap_0: 64792576
-      tilemap_1: 739981684
+      treearmback: 1826136208
+      treetrunk: -254477633
+      treeface: -303524644
+      treelegfront: -931815212
+      treelegback: -432681715
+      treearmfront: 1817329415
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
