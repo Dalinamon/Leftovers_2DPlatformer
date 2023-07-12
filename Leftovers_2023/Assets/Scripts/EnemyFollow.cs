@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using Leftovers_2DPlatformer;
 using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
@@ -9,19 +7,25 @@ public class EnemyFollow : MonoBehaviour
     public float speed;
     public float distanceBetween;
 
+    private Rigidbody2D rb;
     private float distance;
 
-    void Update()
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        GetComponent<EnemyFollow>();
+    }
+
+    private void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if(distance < distanceBetween)
-
+        if (distance < distanceBetween)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
