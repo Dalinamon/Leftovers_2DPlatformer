@@ -10,7 +10,7 @@ namespace Leftovers_2DPlatformer
 		private new Rigidbody2D rigidbody;
 		private Vector2 movement;
 
-		private float gravityMultiplier = 2.5f;
+		public float gravityMultiplier = 2.5f;
 
 		public float Speed
 		{

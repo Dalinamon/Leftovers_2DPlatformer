@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PanelTriggerSimplified : MonoBehaviour
 {
-    public GameObject panel; // Reference to the panel GameObject in the canvas
+    public GameObject panel;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            panel.SetActive(true); // Open the panel by enabling its GameObject
+            panel.SetActive(true); 
             Debug.Log("Panel opened");
         }
     }
@@ -17,7 +17,7 @@ public class PanelTriggerSimplified : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            panel.SetActive(false); // Close the panel by disabling its GameObject
+            panel.SetActive(false); 
             Debug.Log("Panel closed");
         }
     }

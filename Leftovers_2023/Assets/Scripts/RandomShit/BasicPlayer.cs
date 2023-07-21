@@ -15,11 +15,11 @@ public class BasicPlayer : MonoBehaviour
 
     private void Update()
     {
-        // Movement
+
         float moveX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
 
-        // Jumping
+
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -29,7 +29,7 @@ public class BasicPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Reset jump state when touching the ground
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;

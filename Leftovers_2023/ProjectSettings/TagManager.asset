@@ -46,7 +46,7 @@ TagManager:
   - name: Environment
     uniqueID: 3817663809
     locked: 0
-  - name: Player
+  - name: Characters
     uniqueID: 1336895809
     locked: 0
   - name: Effects

@@ -4,7 +4,8 @@ public class EnemyFollow : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-    public float distanceBetween;
+    public float followRange; 
+    public float stopFollowRange; 
 
     private Rigidbody2D rb;
     private float distance;
@@ -15,21 +16,21 @@ public class EnemyFollow : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; 
+        rb.gravityScale = 0f;
         initialRotation = transform.rotation;
     }
 
     private void Update()
     {
-        distance = Mathf.Abs(transform.position.y - player.transform.position.y);
+        distance = Mathf.Abs(transform.position.x - player.transform.position.x);
 
-        if (distance < distanceBetween)
+        if (distance < followRange)
         {
             float moveDirection = Mathf.Sign(player.transform.position.x - transform.position.x);
             rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
             RotateTowardsPlayer();
         }
-        else
+        else if (distance > stopFollowRange)
         {
             rb.velocity = Vector2.zero;
             ResetRotation();
@@ -47,7 +48,6 @@ public class EnemyFollow : MonoBehaviour
         }
         else
         {
-           
             transform.rotation = initialRotation;
         }
     }
@@ -62,3 +62,5 @@ public class EnemyFollow : MonoBehaviour
         isPlayerGrounded = grounded;
     }
 }
+
+
