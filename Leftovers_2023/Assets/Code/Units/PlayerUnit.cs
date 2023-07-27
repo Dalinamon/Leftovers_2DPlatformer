@@ -19,6 +19,12 @@ namespace Leftovers_2DPlatformer
 		private new SpriteRenderer renderer;
 
 		private new Rigidbody2D rigidbody;
+
+		[SerializeField]
+		private Bomb bombPrefab;
+
+		private Vector2 shootDirection;
+
 		protected override void Awake()
 		{
 			base.Awake();
@@ -34,7 +40,7 @@ namespace Leftovers_2DPlatformer
 		{
 			base.Start();
 
-			
+			shootDirection = Vector2.right;
 		}
 
 		protected override void Update()
@@ -58,17 +64,33 @@ namespace Leftovers_2DPlatformer
 			Mover.Jump(jumpHeight);
 		}
 
+		void Shoot(InputAction.CallbackContext context)
+		{
+
+			Fire(shootDirection);
+		}
+
+		private void Fire(Vector2 direction)
+		{
+			Bomb bomb =
+				Instantiate(bombPrefab, transform.position, Quaternion.identity);
+
+			bomb.Launch(direction);
+		}
+
+
 		private void UpdateAnimator()
 		{
 			if (rigidbody.velocity.x < -1)
 			{
 				renderer.flipX = true;
+				shootDirection = Vector2.left;
 
 			}
 			else if (rigidbody.velocity.x > 1)
 			{
 				renderer.flipX = false;
-
+				shootDirection = Vector2.right;
 			}
 		}
 
@@ -82,7 +104,10 @@ namespace Leftovers_2DPlatformer
 
 			inputs.Player.Jump.Disable();
 			inputs.Player.Jump.performed -= Jump;
-			
+
+			inputs.Player.Shoot.Disable();
+			inputs.Player.Shoot.performed -= Shoot;
+
 		}
 
 		private void OnEnable()
@@ -94,7 +119,10 @@ namespace Leftovers_2DPlatformer
 
 			inputs.Player.Jump.Enable();
 			inputs.Player.Jump.performed += Jump;
-			
+
+			inputs.Player.Shoot.Enable();
+			inputs.Player.Shoot.performed += Shoot;
+
 		}
 	}
 }

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpHeight: 5
+  bombPrefab: {fileID: 5421401591629843346, guid: 468770443d5371d4186ac4a313cc765e, type: 3}
 --- !u!114 &2884571043161394346
 MonoBehaviour:
   m_ObjectHideFlags: 0

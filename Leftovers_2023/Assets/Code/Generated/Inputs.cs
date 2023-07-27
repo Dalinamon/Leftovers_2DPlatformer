@@ -46,6 +46,15 @@ namespace Leftovers_2DPlatformer.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""1da30ca9-57d3-4de1-9a4d-404e24b865a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,17 @@ namespace Leftovers_2DPlatformer.Input
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a7a8cf6-1560-457e-b41c-fffb3fbcd23d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -102,6 +122,7 @@ namespace Leftovers_2DPlatformer.Input
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+            m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -163,12 +184,14 @@ namespace Leftovers_2DPlatformer.Input
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Jump;
+        private readonly InputAction m_Player_Shoot;
         public struct PlayerActions
         {
             private @Inputs m_Wrapper;
             public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
+            public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -184,6 +207,9 @@ namespace Leftovers_2DPlatformer.Input
                     @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                    @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                    @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -194,6 +220,9 @@ namespace Leftovers_2DPlatformer.Input
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
+                    @Shoot.started += instance.OnShoot;
+                    @Shoot.performed += instance.OnShoot;
+                    @Shoot.canceled += instance.OnShoot;
                 }
             }
         }
@@ -202,6 +231,7 @@ namespace Leftovers_2DPlatformer.Input
         {
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
         }
     }
 }
