@@ -16,12 +16,18 @@ namespace Leftovers_2DPlatformer
 		[SerializeField]
 		private float jumpHeight;
 
+		private new SpriteRenderer renderer;
 
+		private new Rigidbody2D rigidbody;
 		protected override void Awake()
 		{
 			base.Awake();
 
 			inputs = new Inputs();
+
+			rigidbody = GetComponent<Rigidbody2D>();
+
+			renderer = GetComponent<SpriteRenderer>();
 		}
 
 		protected override void Start()
@@ -34,11 +40,16 @@ namespace Leftovers_2DPlatformer
 		protected override void Update()
 		{
 			Mover.Move(move);
+			UpdateAnimator();
+
+
 		}
 
 		void Move(InputAction.CallbackContext context)
 		{
 			move = context.ReadValue<Vector2>();
+
+			
 		}
 
 		void Jump(InputAction.CallbackContext context)
@@ -46,6 +57,22 @@ namespace Leftovers_2DPlatformer
 			
 			Mover.Jump(jumpHeight);
 		}
+
+		private void UpdateAnimator()
+		{
+			if (rigidbody.velocity.x < -1)
+			{
+				renderer.flipX = true;
+
+			}
+			else if (rigidbody.velocity.x > 1)
+			{
+				renderer.flipX = false;
+
+			}
+		}
+
+
 
 		private void OnDisable()
 		{
@@ -63,6 +90,7 @@ namespace Leftovers_2DPlatformer
 			inputs.Player.Move.Enable();
 			inputs.Player.Move.performed += Move;
 			inputs.Player.Move.canceled += Move;
+			
 
 			inputs.Player.Jump.Enable();
 			inputs.Player.Jump.performed += Jump;
