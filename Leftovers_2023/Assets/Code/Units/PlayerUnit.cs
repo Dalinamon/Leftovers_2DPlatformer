@@ -8,7 +8,7 @@ namespace Leftovers_2DPlatformer
 {
     public class PlayerUnit : UnitBase
     {
-		// Inputs
+		
 		private Inputs inputs;
 		
 		private Vector2 move;
