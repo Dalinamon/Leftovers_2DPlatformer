@@ -33,23 +33,27 @@ namespace Leftovers_2DPlatformer
         // Start is called before the first frame update
         void Start()
         {
-            
 
-            
+            mover.MovementSpeed(speed);
+
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            
+            mover.Move(direction);
         }
 
         public void Launch(Vector2 direction)
         {
             this.direction = direction;
 
-            rb.AddForce(direction * speed, ForceMode2D.Impulse);
+            if (direction.x < 0)
+            {
+                renderer.flipX = true;
+            }
+
 
             StartCoroutine(Cooldown());
         }
