@@ -357,13 +357,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: whip
+      name: handle
       rect:
         serializedVersion: 2
-        x: 14
-        y: 2
-        width: 191
-        height: 26
+        x: 51
+        y: 12
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,6 +373,27 @@ TextureImporter:
       bones: []
       spriteID: 7c85a2d86c15123458e17d49785552ef
       internalID: 1469872907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chain
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 11
+        width: 18
+        height: 13
+      alignment: 9
+      pivot: {x: 0.12121243, y: 0.5000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55cb27fe5ea700e4997d073be29f5ebd
+      internalID: 163874231
       vertices: []
       indices: 
       edges: []
@@ -392,6 +413,8 @@ TextureImporter:
       backhandhand: 784432247
       frontlegup: 1817606810
       fronthandhand: 1265704564
+      handle: 1469872907
+      chain: 163874231
       head: -1298435638
       backhandshoulder: -146736051
       backlegup: -1544357867
@@ -400,7 +423,6 @@ TextureImporter:
       backhandarm: 357817303
       frontlegbot: -772628470
       body: 108822581
-      whip: 1469872907
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
