@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Leftovers_2DPlatformer
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IHealth
     {
         [SerializeField]
         private int maxHealth;

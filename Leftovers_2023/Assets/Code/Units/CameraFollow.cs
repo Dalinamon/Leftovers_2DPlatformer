@@ -6,7 +6,8 @@ namespace Leftovers_2DPlatformer
 {
     public class CameraFollow : MonoBehaviour
     {
-		private PlayerUnit player;
+		[SerializeField]
+		private Transform player;
 
 		[SerializeField]
 		private float smoothTime;
@@ -16,7 +17,7 @@ namespace Leftovers_2DPlatformer
 
 		private void Start()
 		{
-			player = FindObjectOfType<PlayerUnit>();
+			
 
 			Camera camera = GetComponent<Camera>();
 			if (camera != null)
