@@ -1,37 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class TextTrigger : MonoBehaviour
 {
-    public Text textToDisplay; 
+    public Text notificationText;
+    public float textDisplayDuration = 2.0f; 
 
-    private bool hasPlayerEntered; 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            hasPlayerEntered = true;
-            textToDisplay.gameObject.SetActive(true); 
+            notificationText.gameObject.SetActive(true);
+            notificationText.text = "Level Completed"; 
+
+            
+            StartCoroutine(HideTextAfterDelay());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private IEnumerator HideTextAfterDelay()
     {
-        if (collision.CompareTag("Player"))
-        {
-            hasPlayerEntered = false;
-            textToDisplay.gameObject.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        if (hasPlayerEntered)
-        {
-
-        }
+        yield return new WaitForSeconds(textDisplayDuration);
+        notificationText.gameObject.SetActive(false);
     }
 }
-
-

@@ -11,8 +11,8 @@ namespace Leftovers_2DPlatformer
         private Vector2 movement;
 
         public float gravityMultiplier = 2.5f;
-        public float initialForceDistance = 5f; 
-        private bool isForceMove = true; 
+        public float initialForceDistance = 5f;
+        private bool isForceMove = true;
 
         public float Speed { get; private set; }
 
@@ -64,27 +64,48 @@ namespace Leftovers_2DPlatformer
             }
         }
 
-        private IEnumerator ForceMoveCoroutine()
+        public IEnumerator ForceMoveCoroutine()
         {
-            
             isForceMove = true;
-            movement = Vector2.right; 
+            movement = Vector2.right;
 
             float distanceMoved = 0f;
             Vector2 startingPosition = transform.position;
             while (distanceMoved < initialForceDistance)
             {
-              
                 float distanceThisFrame = Speed * Time.fixedDeltaTime;
                 distanceMoved += distanceThisFrame;
 
-                
                 rigidbody.MovePosition(startingPosition + Vector2.right * distanceMoved);
 
                 yield return new WaitForFixedUpdate();
             }
 
-            
+            isForceMove = false;
+        }
+
+        public void ForceMoveForward(float distance)
+        {
+            StartCoroutine(ForceMoveForwardCoroutine(distance));
+        }
+
+        private IEnumerator ForceMoveForwardCoroutine(float distance)
+        {
+            isForceMove = true;
+            movement = Vector2.right;
+
+            float distanceMoved = 0f;
+            Vector2 startingPosition = transform.position;
+            while (distanceMoved < distance)
+            {
+                float distanceThisFrame = Speed * Time.fixedDeltaTime;
+                distanceMoved += distanceThisFrame;
+
+                rigidbody.MovePosition(startingPosition + Vector2.right * distanceMoved);
+
+                yield return new WaitForFixedUpdate();
+            }
+
             isForceMove = false;
         }
     }

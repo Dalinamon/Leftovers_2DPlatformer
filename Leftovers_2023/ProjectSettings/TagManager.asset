@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - ShakeTrigger
+  - StopShakeTrigger
   layers:
   - Default
   - TransparentFX
@@ -40,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 15060575
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -48,6 +53,9 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 1336895809
+    locked: 0
+  - name: Environment(front)
+    uniqueID: 458626575
     locked: 0
   - name: Effects
     uniqueID: 4235602205
