@@ -25,6 +25,8 @@ namespace Leftovers_2DPlatformer
 
 		private Vector2 shootDirection;
 
+		private Animator animator;
+
 		protected override void Awake()
 		{
 			base.Awake();
@@ -34,6 +36,8 @@ namespace Leftovers_2DPlatformer
 			rigidbody = GetComponent<Rigidbody2D>();
 
 			renderer = GetComponent<SpriteRenderer>();
+
+			animator = GetComponent<Animator>();
 		}
 
 		protected override void Start()
@@ -54,7 +58,7 @@ namespace Leftovers_2DPlatformer
 		void Move(InputAction.CallbackContext context)
 		{
 			move = context.ReadValue<Vector2>();
-
+			
 			
 		}
 
@@ -62,12 +66,14 @@ namespace Leftovers_2DPlatformer
 		{
 			
 			Mover.Jump(jumpHeight);
+			animator.SetTrigger("Jump");
 		}
 
 		void Shoot(InputAction.CallbackContext context)
 		{
 
 			Fire(shootDirection);
+			animator.SetTrigger("Throw");
 		}
 
 		private void Fire(Vector2 direction)
@@ -85,13 +91,17 @@ namespace Leftovers_2DPlatformer
 			{
 				renderer.flipX = true;
 				shootDirection = Vector2.left;
+				animator.SetInteger("Run", 1);
 
 			}
 			else if (rigidbody.velocity.x > 1)
 			{
 				renderer.flipX = false;
 				shootDirection = Vector2.right;
+				animator.SetInteger("Run", 1);
 			}
+			else
+				animator.SetInteger("Run", 0);
 		}
 
 
